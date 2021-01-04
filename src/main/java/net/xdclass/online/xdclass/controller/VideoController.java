@@ -15,6 +15,7 @@ public class VideoController {
     @GetMapping("list")
     //@RequestMapping("list")
     public Object listVideo(){
+        System.out.println(11);
         return videoService.listVideo();
     }
 }
