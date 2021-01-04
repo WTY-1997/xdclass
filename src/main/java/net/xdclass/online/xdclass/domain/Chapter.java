@@ -1,6 +1,8 @@
 package net.xdclass.online.xdclass.domain;
 
 import java.util.Date;
+import java.util.List;
+
 //章对象
 //CREATE TABLE `chapter` (
 //        `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -16,6 +18,15 @@ public class Chapter {
     private String title;
     private Integer ordered;
     private Date createTime;
+    private List<Episode> episodeList;
+
+    public List<Episode> getEpisodeList() {
+        return episodeList;
+    }
+
+    public void setEpisodeList(List<Episode> episodeList) {
+        this.episodeList = episodeList;
+    }
 
     @Override
     public String toString() {

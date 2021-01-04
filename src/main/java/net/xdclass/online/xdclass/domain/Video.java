@@ -1,6 +1,7 @@
 package net.xdclass.online.xdclass.domain;
 
 import java.util.Date;
+import java.util.List;
 
 //CREATE TABLE `video` (
 //        `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -20,6 +21,15 @@ public class Video {
     private Integer price;
     private Date createTime;
     private Double point;
+    private List<Chapter> chapterList;
+
+    public List<Chapter> getChapterList() {
+        return chapterList;
+    }
+
+    public void setChapterList(List<Chapter> chapterList) {
+        this.chapterList = chapterList;
+    }
 
     @Override
     public String toString() {
