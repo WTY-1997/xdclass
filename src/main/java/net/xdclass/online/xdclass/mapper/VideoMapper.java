@@ -1,8 +1,7 @@
 package net.xdclass.online.xdclass.mapper;
 
-import net.xdclass.online.xdclass.domain.Video;
-import net.xdclass.online.xdclass.domain.VideoBanner;
-import org.springframework.stereotype.Repository;
+import net.xdclass.online.xdclass.model.entity.Video;
+import net.xdclass.online.xdclass.model.entity.VideoBanner;
 
 import java.util.List;
 

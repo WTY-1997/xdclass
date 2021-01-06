@@ -17,4 +17,4 @@ mybatis:
 #    配置扫描
   mapper-locations: classpath:mapper/*.xml
 #  配置xml结果别名
-  type-aliases-package: net.xdclass.online.xdclass
+  type-aliases-package: net.xdclass.online.xdclass.model.entity

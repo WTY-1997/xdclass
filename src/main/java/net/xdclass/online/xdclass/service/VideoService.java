@@ -1,7 +1,7 @@
 package net.xdclass.online.xdclass.service;
 
-import net.xdclass.online.xdclass.domain.Video;
-import net.xdclass.online.xdclass.domain.VideoBanner;
+import net.xdclass.online.xdclass.model.entity.Video;
+import net.xdclass.online.xdclass.model.entity.VideoBanner;
 
 import java.util.List;
 

@@ -1,8 +1,6 @@
 package net.xdclass.online.xdclass.service;
 
-import net.xdclass.online.xdclass.domain.User;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Service;
+import net.xdclass.online.xdclass.model.entity.User;
 
 import java.util.Map;
 
@@ -21,4 +19,12 @@ public interface UserService {
      * @return
      */
     User findUserByPhone( String phone);
+
+    /**
+     *
+     * @param phone
+     * @param pwd
+     * @return
+     */
+    String findByPhoneAndPwd(String phone, String pwd);
 }

@@ -1,4 +1,4 @@
-package net.xdclass.online.xdclass.domain;
+package net.xdclass.online.xdclass.model.entity;
 //视频轮播图
 //CREATE TABLE `video_banner` (
 //        `id` int unsigned NOT NULL AUTO_INCREMENT,

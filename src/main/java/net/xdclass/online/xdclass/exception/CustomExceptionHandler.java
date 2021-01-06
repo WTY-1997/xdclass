@@ -18,6 +18,7 @@ public class CustomExceptionHandler {
             XDException xdException = (XDException) e;
             return JsonData.bulidError(xdException.getCode(), xdException.getMsg());
         } else {
+            e.printStackTrace();
             return JsonData.bulidError("未知异常");
         }
     }

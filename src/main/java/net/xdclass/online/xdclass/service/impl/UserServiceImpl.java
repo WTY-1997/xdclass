@@ -1,12 +1,11 @@
 package net.xdclass.online.xdclass.service.impl;
 
-import net.xdclass.online.xdclass.domain.User;
+import net.xdclass.online.xdclass.model.entity.User;
 import net.xdclass.online.xdclass.mapper.UserMapper;
 import net.xdclass.online.xdclass.service.UserService;
 import net.xdclass.online.xdclass.utils.CommentUtils;
-import org.springframework.beans.factory.annotation.Autowired;
+import net.xdclass.online.xdclass.utils.JWTUtils;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -18,9 +17,14 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
 
+    /**
+     * 注册
+     * @param userInfo
+     * @return
+     */
     @Override
     public int save(Map<String, String> userInfo) {
-        User user = parseToUser(userInfo);
+        User user = parseToUser(userInfo);//解析Map userInfo中的user对象
         if (user != null) {
             return userMapper.save(user);
         } else {
@@ -38,7 +42,7 @@ public class UserServiceImpl implements UserService {
         if (userInfo.containsKey("phone") && userInfo.containsKey("pwd") && userInfo.containsKey("name")) {
             User user = new User();
             user.setCreateTime(new Date());
-            user.setHeadImg(getRandomImg());
+            user.setHeadImg(getRandomImg());//随机头像
             user.setName(userInfo.get("name"));
             user.setPhone(userInfo.get("phone"));
             String pwd = userInfo.get("pwd");
@@ -69,8 +73,30 @@ public class UserServiceImpl implements UserService {
     }
 
 
+    /**
+     * 通过电话号码查询用户
+     * @param phone
+     * @return
+     */
     @Override
     public User findUserByPhone(String phone) {
         return null;
+    }
+
+    /**
+     * 通过电话号码和密码查询是否一致
+     * @param phone
+     * @param pwd
+     * @return
+     */
+    @Override
+    public String findByPhoneAndPwd(String phone, String pwd) {
+      User user =  userMapper.findByPhoneAndPwd(phone,CommentUtils.MD5(pwd));
+      if(user==null){
+          return null;
+      }else{
+          String token = JWTUtils.geneJsonWebToken(user);
+          return token;
+      }
     }
 }

@@ -1,6 +1,4 @@
-package net.xdclass.online.xdclass.domain;
-
-import org.graalvm.compiler.nodes.calc.IntegerDivRemNode;
+package net.xdclass.online.xdclass.model.entity;
 
 import java.util.Date;
 

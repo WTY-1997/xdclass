@@ -16,4 +16,9 @@
         #{phone,jdbcType=VARCHAR},
         #{createTime,jdbcType=TIMESTAMP})
     </insert>
+
+<!--    根据手机号和密码找用户-->
+    <select id="findByPhoneAndPwd" resultType="User">
+        select * from `user` where phone =#{phone} and pwd=#{pwd}
+    </select>
 </mapper>
